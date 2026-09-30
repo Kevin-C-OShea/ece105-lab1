@@ -1,5 +1,6 @@
 import numpy as np
 import random
+import time
 
 """
 YOUR FULL NAME HERE Kevin O'Shea 
@@ -29,6 +30,12 @@ c: column (1 of 7)
 r: row (1 of 6)
 p: player index (1 or 2)
 """
+#time calc
+def time_dif(t1,t2):
+	time_dif=t2-t1
+	return time_dif
+
+
 
 # Create the board with the initial state
 def initBoard(nr, nc):
@@ -156,16 +163,19 @@ def ckArray(a, p):
 # Main program 
 if __name__ == "__main__":
     # Connect4 board has 6 rows and 7 columns
-    nr, nc = 6, 7
-
-    # Repeatedly play a random game until there is no winner
-    n = 0
-    b = np.array([]) # Generate an empty numpy array 
-    while b.size == 0 or ckWin(b): # ckWin(b) is True if there is a winner
-        b = randomGame(initBoard(nr, nc)) # random game board
-        n += 1 # number of games played
+	t1 = time.time()
+	nr, nc = 6, 7
+	# Repeatedly play a random game until there is no winner
+	n = 0
+	b = np.array([]) # Generate an empty numpy array 
+	while b.size == 0 or ckWin(b): # ckWin(b) is True if there is a winner
+		b = randomGame(initBoard(nr, nc)) # random game board
+		n += 1 # number of games played
 
     # Print board, # attempts, and win status of board
-    print(b) 
-    print(n) 
-    print(ckWin(b))
+    
+	t2 = time.time()
+	print(b) 
+	print(n) 
+	print(ckWin(b))
+	print(time_dif(t1,t2), "seconds")
