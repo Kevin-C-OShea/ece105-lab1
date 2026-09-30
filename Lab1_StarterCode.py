@@ -2,8 +2,8 @@ import numpy as np
 import random
 
 """
-YOUR FULL NAME HERE 
-YOUR STUDENT ID HERE
+YOUR FULL NAME HERE Kevin O'Shea 
+YOUR STUDENT ID HERE 
 
 ASSIGNMENT: COMPLETE randomPlay and randomGame functions below
 """
@@ -98,14 +98,18 @@ def randomGame(b):
 	# continue to play until board is full
 	# replace True with stopping criterion using boardFull(b)
 	while True:
-		# make a random play
+		randomPlay(b,p) # make a random play
 		pass
-		# check for a win
+		if ckWin(b):
+			return b # check for a win
+		pass 
+		if p ==1:
+			p=2
+		else:
+			p=1 # toggle player
 		pass
-		# toggle player
-		pass
-	# board is full
-	return b
+		if boardFull(b): # board is full
+			return b
 
 # Check board to see if either player has won the game
 def ckWin(b):
